@@ -16,4 +16,15 @@ public class TestBedroom {
     public void canGetRoomNum(){
         assertEquals(1, bedroom.getRoomNumber());
     }
+
+    @Test
+    public void canGetRoomType(){
+        assertEquals(RoomType.SINGLE, bedroom.getRoomTypeFromEnum());
+    }
+
+    @Test
+    public void canGetRoomTypeCpacity(){
+        assertEquals(1, bedroom.getCapacityFromEnum());
+    }
+
 }

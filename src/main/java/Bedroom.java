@@ -11,4 +11,12 @@ public class Bedroom {
     public int getRoomNumber() {
         return this.roomNumber;
     }
+
+    public RoomType getRoomTypeFromEnum() {
+        return this.roomType;
+    }
+
+    public int getCapacityFromEnum() {
+        return this.roomType.getCapacity();
+    }
 }
