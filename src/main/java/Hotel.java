@@ -29,4 +29,13 @@ public class Hotel {
     public int getGuestCount() {
         return this.guests.size();
     }
+
+    public void addToBedrooms(Bedroom bedroom) {
+        this.listOfBedrooms.add(bedroom);
+
+    }
+
+    public void addToConferenceRoomList(ConferenceRoom conferenceRoom) {
+        this.listOfConferenceRooms.add(conferenceRoom);
+    }
 }
