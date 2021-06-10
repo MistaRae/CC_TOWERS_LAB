@@ -39,7 +39,7 @@ public class Hotel {
         this.listOfConferenceRooms.add(conferenceRoom);
     }
 
-    public void addtoGuestList(Guest guest) {
+    public void addToGuestList(Guest guest) {
         this.listOfGuests.add(guest);
     }
 
