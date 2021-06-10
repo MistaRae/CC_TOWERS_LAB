@@ -1,15 +1,18 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestBedroom {
 
-    Bedroom bedroom;
+    private Bedroom bedroom;
+    private ArrayList<Guest> occupants;
 
     @Before
     public void setUp(){
-        bedroom = new Bedroom(1, RoomType.SINGLE);
+        bedroom = new Bedroom(occupants,1, RoomType.SINGLE);
     }
 
     @Test
