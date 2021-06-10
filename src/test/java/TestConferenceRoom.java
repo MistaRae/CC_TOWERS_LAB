@@ -33,6 +33,11 @@ public class TestConferenceRoom {
         assertEquals("Business Suite", conferenceRoom.getName());
     }
 
+    @Test
+    public void canCheckInToConferenceRoom(){
+
+    }
+
 
 
 

@@ -18,4 +18,12 @@ public class ConferenceRoom extends Room {
     public String getName() {
         return this.name;
     }
+
+    public void addGuestToConferenceRoomOccupants(Guest guest) {
+        addGuestToOccupants(guest);
+    }
+
+    public void removeGuestFromConferenceRoomOccupants(Guest guest) {
+        removeGuestFromOccupants(guest);
+    }
 }

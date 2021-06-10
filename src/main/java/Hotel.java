@@ -44,6 +44,13 @@ public class Hotel {
     }
 
     public void checkIn(Bedroom bedroom, Guest guest) {
-        bedroom.addGuestToBedroomOccupants(guest);
+        int bedroomCapacity = bedroom.getCapacityFromEnum();
+        int bedroomOccupants = bedroom.getNumOfOccupants();
+        for (Bedroom room : listOfBedrooms) {
+            if (room == bedroom && bedroomOccupants < bedroomCapacity){
+                bedroom.addGuestToBedroomOccupants(guest);
+            }
+        }
+
     }
 }

@@ -67,7 +67,9 @@ public class TestHotel {
 
     @Test
     public void hotelCanAddToGuest(){
+        hotel.addToBedrooms(bedroom1);
         hotel.checkIn(bedroom1, guest1);
+        hotel.checkIn(bedroom1, guest2);
         assertEquals(1, bedroom1.getNumOfOccupants());
     }
 
