@@ -14,6 +14,7 @@ public class TestConferenceRoom {
     @Before
     public void setUp(){
         mark = new Guest("Mark");
+        occupants = new ArrayList<>();
         conferenceRoom = new ConferenceRoom(occupants,10, "Business Suite" );
     }
 
@@ -25,6 +26,11 @@ public class TestConferenceRoom {
     @Test
     public void canGetRoomCapacity(){
         assertEquals(10,conferenceRoom.getCapacity());
+    }
+
+    @Test
+    public void canGetName(){
+        assertEquals("Business Suite", conferenceRoom.getName());
     }
 
 
