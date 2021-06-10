@@ -1,4 +1,6 @@
-public class Bedroom {
+import java.util.ArrayList;
+
+public class Bedroom extends Room {
 
     private int roomNumber;
     private RoomType roomType;
@@ -27,5 +29,8 @@ public class Bedroom {
     public void addGuestToBedroomOccupants(Guest guest) {
         addGuestToOccupants(guest);
 
+    }
+    public void removeGuestFromBedroomOccupants(Guest guest){
+        removeGuestFromOccupants(guest);
     }
 }

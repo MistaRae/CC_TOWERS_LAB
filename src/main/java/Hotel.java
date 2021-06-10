@@ -53,4 +53,22 @@ public class Hotel {
         }
 
     }
+    public void checkOut(Bedroom bedroom, Guest guest){
+        bedroom.removeGuestFromBedroomOccupants(guest);
+    }
+
+    public void checkInToConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
+        int conferenceRoomCapacity = conferenceRoom.getCapacity();
+        int conferenceRoomOccupants = conferenceRoom.getNumOfOccupants();
+        for (ConferenceRoom room : listOfConferenceRooms) {
+            if (room == conferenceRoom && conferenceRoomOccupants < conferenceRoomCapacity){
+                conferenceRoom.addGuestToConferenceRoomOccupants(guest);
+            }
+        }
+    }
+
+
+    public void checkOutOfConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
+        conferenceRoom.removeGuestFromConferenceRoomOccupants(guest);
+    }
 }

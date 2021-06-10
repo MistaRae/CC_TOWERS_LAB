@@ -15,6 +15,8 @@ public class TestHotel {
     private Bedroom bedroom1;
     private ConferenceRoom conferenceRoom1;
     private ArrayList<Guest> occupants;
+    private Guest guest1;
+    private Guest guest2;
 
     @Before
     public void setUp(){
@@ -25,6 +27,8 @@ public class TestHotel {
         listOfConferenceRooms = new ArrayList<>();
         guests = new ArrayList<>();
         hotel = new Hotel("The Ritz", listOfBedrooms, listOfConferenceRooms, guests );
+        guest1 = new Guest ("Barry");
+        guest2 = new Guest ("Jo");
     }
 
     @Test
@@ -72,5 +76,27 @@ public class TestHotel {
         hotel.checkIn(bedroom1, guest2);
         assertEquals(1, bedroom1.getNumOfOccupants());
     }
+    @Test
+    public void hotelCanRemoveGuestFromBedroom(){
+        hotel.addToBedrooms(bedroom1);
+        hotel.checkIn(bedroom1, guest1);
+        hotel.checkOut(bedroom1, guest1);
+        assertEquals(0, bedroom1.getNumOfOccupants());
+    }
+
+   @Test
+   public void hotelCanCheckInToConferenceRoom(){
+        hotel.addToConferenceRoomList(conferenceRoom1);
+        hotel.checkInToConferenceRoom(conferenceRoom1, guest1);
+        assertEquals(1, conferenceRoom1.getNumOfOccupants());
+   }
+
+   @Test
+    public void hotelCanCheckOutOfConferenceRoom(){
+        hotel.addToConferenceRoomList(conferenceRoom1);
+        hotel.checkInToConferenceRoom(conferenceRoom1, guest1);
+        hotel.checkOutOfConferenceRoom(conferenceRoom1, guest1);
+        assertEquals(0, conferenceRoom1.getNumOfOccupants());
+   }
 
 }

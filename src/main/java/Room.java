@@ -11,8 +11,12 @@ public abstract class Room {
     public void addGuestToOccupants(Guest guest) {
         occupants.add(guest);
     }
+    public void removeGuestFromOccupants(Guest guest){
+        occupants.remove(guest);
+    }
 
     public int getNumOfOccupants() {
         return occupants.size();
     }
+
 }

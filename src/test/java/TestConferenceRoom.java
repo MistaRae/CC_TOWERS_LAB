@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestConferenceRoom {
+public class TestConferenceRoom  {
 
     ConferenceRoom conferenceRoom;
     Guest mark;
