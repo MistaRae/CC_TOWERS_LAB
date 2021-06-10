@@ -25,7 +25,7 @@ public class Bedroom {
     }
 
     public void addGuestToBedroomOccupants(Guest guest) {
-        Bedroom.addGuestToOccupants(guest);
+        addGuestToOccupants(guest);
 
     }
 }

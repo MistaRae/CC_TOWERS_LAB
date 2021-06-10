@@ -2,13 +2,13 @@ import java.util.ArrayList;
 
 public abstract class Room {
 
-    private static ArrayList<Guest> occupants;
+    private ArrayList<Guest> occupants;
 
     public Room(ArrayList<Guest> occupants){
         this.occupants = occupants;
     }
 
-    public static void addGuestToOccupants(Guest guest) {
+    public void addGuestToOccupants(Guest guest) {
         occupants.add(guest);
     }
 
