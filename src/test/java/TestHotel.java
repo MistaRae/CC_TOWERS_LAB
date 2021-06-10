@@ -31,5 +31,14 @@ public class TestHotel {
         assertEquals(0, hotel.getBedroomCount());
     }
 
+    @Test
+    public void hotelConferenceRoomListStartEmpty(){
+        assertEquals(0, hotel.getConferenceRoomCount());
+    }
+
+    @Test
+    public void hotelStartsWithNoGuests(){
+        assertEquals(0, hotel.getGuestCount());
+    }
 
 }

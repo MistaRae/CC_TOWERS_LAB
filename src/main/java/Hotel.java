@@ -21,4 +21,12 @@ public class Hotel {
     public int getBedroomCount() {
         return this.listOfBedrooms.size();
     }
+
+    public int getConferenceRoomCount() {
+        return this.listOfConferenceRooms.size();
+    }
+
+    public int getGuestCount() {
+        return this.guests.size();
+    }
 }
