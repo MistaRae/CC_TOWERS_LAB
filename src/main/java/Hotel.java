@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Hotel {
 
@@ -6,12 +7,17 @@ public class Hotel {
     private ArrayList<Bedroom> listOfBedrooms;
     private ArrayList<ConferenceRoom> listOfConferenceRooms;
     private ArrayList<Guest> listOfGuests;
+    private ArrayList<Booking> listOfBookings;
+    private HashMap<String, DiningRoom> diningRooms;
 
-    public Hotel(String name, ArrayList listOfBedrooms, ArrayList listOfConferenceRooms, ArrayList guests ){
+
+    public Hotel(String name, ArrayList listOfBedrooms, ArrayList listOfConferenceRooms, ArrayList guests, ArrayList listOfBookings, HashMap diningRooms){
         this.name = name;
         this.listOfBedrooms = new ArrayList<>();
         this.listOfConferenceRooms = new ArrayList<>();
         this.listOfGuests = new ArrayList<>();
+        this.listOfBookings = new ArrayList<>();
+        this.diningRooms = new HashMap<>();
     }
 
     public String getName() {
@@ -55,6 +61,8 @@ public class Hotel {
     }
     public void checkOut(Bedroom bedroom, Guest guest){
         bedroom.removeGuestFromBedroomOccupants(guest);
+
+
     }
 
     public void checkInToConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
@@ -67,8 +75,26 @@ public class Hotel {
         }
     }
 
-
     public void checkOutOfConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
         conferenceRoom.removeGuestFromConferenceRoomOccupants(guest);
+    }
+
+    public Booking bookRoom(Bedroom bedroom, Guest guest, int nightsBooked) {
+        Booking newBooking = new Booking(bedroom, guest, nightsBooked);
+        this.listOfBookings.add(newBooking);
+        return newBooking;
+    }
+
+    public int getNumOfBookings() {
+        return listOfBookings.size();
+    }
+
+    public int getNumOfDiningRooms() {
+        return diningRooms.size();
+    }
+
+    public void addToDiningRooms(DiningRoom diningRoom) {
+        String key = diningRoom.getName();
+        diningRooms.put(key, diningRoom);
     }
 }

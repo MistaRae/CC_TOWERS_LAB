@@ -4,14 +4,15 @@ public class Bedroom extends Room {
 
     private int roomNumber;
     private RoomType roomType;
-//    private ArrayList<Guest> occupants;
-//    private occupants = new ArrayList<>();
+    private double nightlyRate;
 
 
-    public Bedroom(ArrayList occupants, int roomNumber, RoomType roomType){
+
+    public Bedroom(ArrayList occupants, int roomNumber, RoomType roomType, double nightlyRate){
         super(occupants);
         this.roomNumber = roomNumber;
         this.roomType = roomType;
+        this.nightlyRate = nightlyRate;
     }
 
     public int getRoomNumber() {
@@ -28,9 +29,13 @@ public class Bedroom extends Room {
 
     public void addGuestToBedroomOccupants(Guest guest) {
         addGuestToOccupants(guest);
-
     }
+
     public void removeGuestFromBedroomOccupants(Guest guest){
         removeGuestFromOccupants(guest);
+    }
+
+    public double getRate() {
+        return this.nightlyRate;
     }
 }

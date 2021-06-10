@@ -12,7 +12,7 @@ public class TestBedroom {
 
     @Before
     public void setUp(){
-        bedroom = new Bedroom(occupants,1, RoomType.SINGLE);
+        bedroom = new Bedroom(occupants,1, RoomType.SINGLE, 10.00);
     }
 
     @Test
@@ -28,6 +28,11 @@ public class TestBedroom {
     @Test
     public void canGetRoomTypeCpacity(){
         assertEquals(1, bedroom.getCapacityFromEnum());
+    }
+
+    @Test
+    public void roomHasRate(){
+        assertEquals(10.00, bedroom.getRate(), 0.00);
     }
 
 }

@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,23 +13,30 @@ public class TestHotel {
     private ArrayList<Bedroom> listOfBedrooms;
     private ArrayList<ConferenceRoom> listOfConferenceRooms;
     private ArrayList<Guest> guests;
+    private ArrayList<Booking> bookings;
+    private HashMap<String, DiningRoom> diningRooms;
     private Bedroom bedroom1;
     private ConferenceRoom conferenceRoom1;
     private ArrayList<Guest> occupants;
     private Guest guest1;
     private Guest guest2;
+    private DiningRoom diningRoom1;
+
 
     @Before
     public void setUp(){
         occupants = new ArrayList<>();
         conferenceRoom1 = new ConferenceRoom(occupants,5, "Winchester" );
-        bedroom1 = new Bedroom(occupants,1,RoomType.SINGLE);
+        bedroom1 = new Bedroom(occupants,1,RoomType.SINGLE, 10.00);
         listOfBedrooms = new ArrayList<>();
         listOfConferenceRooms = new ArrayList<>();
         guests = new ArrayList<>();
-        hotel = new Hotel("The Ritz", listOfBedrooms, listOfConferenceRooms, guests );
+        bookings = new ArrayList<>();
+        hotel = new Hotel("The Ritz", listOfBedrooms, listOfConferenceRooms, guests, bookings, diningRooms);
         guest1 = new Guest ("Barry");
         guest2 = new Guest ("Jo");
+        diningRoom1 = new DiningRoom(occupants,"restaurant", 50);
+
     }
 
     @Test
@@ -58,14 +66,14 @@ public class TestHotel {
     }
 
     @Test
-    public void hotelCanAddtoConferenceRoomList(){
+    public void hotelCanAddToConferenceRoomList(){
         hotel.addToConferenceRoomList(conferenceRoom1);
         assertEquals(1, hotel.getConferenceRoomCount());
     }
 
     @Test
     public void hotelCanAddToGuestsList(){
-        hotel.addtoGuestList(guest1);
+        hotel.addToGuestList(guest1);
         assertEquals(1, hotel.getGuestCount());
     }
 
@@ -98,5 +106,23 @@ public class TestHotel {
         hotel.checkOutOfConferenceRoom(conferenceRoom1, guest1);
         assertEquals(0, conferenceRoom1.getNumOfOccupants());
    }
+
+    @Test
+    public void canMakeNewBooking(){
+        Booking newBooking = hotel.bookRoom(bedroom1,guest1,5);
+        assertEquals(5, newBooking.getNightsBooked());
+        assertEquals(1, hotel.getNumOfBookings());
+    }
+
+    @Test
+    public void DiningRoomsStartsEmpty(){
+        assertEquals(0, hotel.getNumOfDiningRooms());
+    }
+
+    @Test
+    public void canAddToDiningRooms(){
+        hotel.addToDiningRooms(diningRoom1);
+        assertEquals(1, hotel.getNumOfDiningRooms());
+    }
 
 }
